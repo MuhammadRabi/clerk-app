@@ -6,7 +6,7 @@ export default async function Page() {
   const { userId } = auth()
 
   const createdAt = user?.createdAt
-  const date = new Date(createdAt)
+  const date = createdAt ? new Date(createdAt) : new Date()
   const registerDate = date.toLocaleString()
 
   return (
@@ -25,7 +25,10 @@ export default async function Page() {
               Welcome <span className='font-bold'>{user?.fullName}</span>!
             </h1>
             <div className='mb-3 max-w-xl rounded-sm bg-slate-200 p-3 text-center'>
-              <pre className='capitalize'>created at: {registerDate}</pre>
+              <p>created at: {registerDate}</p>
+              <p className='font-bold text-pink-500'>
+                email: {user?.emailAddresses[0].emailAddress}
+              </p>
             </div>
           </div>
         )}

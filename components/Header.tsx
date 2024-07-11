@@ -21,7 +21,14 @@ export default function Header() {
           </SignInButton>
         </SignedOut>
         <SignedIn>
-          <UserButton />
+          <UserButton
+            showName
+            appearance={{
+              elements: {
+                userButtonOuterIdentifier: 'dark:text-slate-200'
+              }
+            }}
+          />
         </SignedIn>
       </div>
     </header>
