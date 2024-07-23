@@ -20,14 +20,14 @@ export default async function Page() {
           component
         </p>
         {userId && (
-          <div>
+          <div className=' text-center'>
             <h1 className='py-8 text-center'>
               Welcome <span className='font-bold'>{user?.fullName}</span>!
             </h1>
-            <div className='mb-3 max-w-xl rounded-sm bg-slate-200 p-3 text-center'>
-              <p>created at: {registerDate}</p>
+
+            <div className='mb-3 max-w-xl rounded-sm bg-slate-200 p-3'>
               <p className='font-bold text-pink-500'>
-                email: {user?.emailAddresses[0].emailAddress}
+                {user?.emailAddresses[0].emailAddress}
               </p>
             </div>
           </div>

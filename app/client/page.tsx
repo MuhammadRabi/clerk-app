@@ -16,10 +16,11 @@ export default function Page() {
           component
         </p>
       </div>
-
-      <h1 className='py-8 text-center'>
-        Welcome <span className='font-bold'>{user?.fullName}</span>!
-      </h1>
+      {isSignedIn && (
+        <h1 className='py-8 text-center'>
+          Welcome <span className='font-bold'>{user?.fullName}</span>!
+        </h1>
+      )}
     </section>
   )
 }
