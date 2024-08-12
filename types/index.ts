@@ -13,3 +13,17 @@ export type UpdateUserParams = {
   lastName: string
   photo: string
 }
+
+export type ProductToBuyParams = {
+  name: string
+  price: number
+  buyerId: string
+  desc?: string
+}
+
+export type ProductProps = {
+  name: string
+  price: number
+  id: string
+  desc: string
+}

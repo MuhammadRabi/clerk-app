@@ -1,14 +1,14 @@
+import { getProducts } from '@/utils/getProducts'
 import { auth, currentUser } from '@clerk/nextjs/server'
 import React from 'react'
 
 export default async function Page() {
   const user = await currentUser()
   const { userId } = auth()
-
+  const products = await getProducts()
   const createdAt = user?.createdAt
   const date = createdAt ? new Date(createdAt) : new Date()
   const registerDate = date.toLocaleString()
-
   return (
     <section className='py-48'>
       <div className='container flex flex-col items-center justify-center'>

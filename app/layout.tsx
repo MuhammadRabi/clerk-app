@@ -23,7 +23,7 @@ export default function RootLayout({
         <body style={inter.style} className='bg-[#f9f9fb] dark:bg-gray-800'>
           <ThemeProvider>
             <Header />
-            <main className='container md:px-16 xl:px-36'>{children}</main>
+            <main className='container'>{children}</main>
           </ThemeProvider>
         </body>
       </html>

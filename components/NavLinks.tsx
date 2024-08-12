@@ -28,6 +28,12 @@ function NavLinks() {
       >
         Client
       </Link>
+      <Link
+        href='/products'
+        className={`${pathname === '/products' ? 'text-pink-600' : ''}`}
+      >
+        Products
+      </Link>
     </div>
   )
 }
