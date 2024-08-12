@@ -3,6 +3,9 @@ import { ProductToBuyParams } from '@/types'
 import { Button } from './ui/button'
 import { ShoppingCart } from 'lucide-react'
 import { checkoutProduct } from '@/lib/actions/transaction.action'
+import { loadStripe } from '@stripe/stripe-js'
+
+loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!)
 
 const Checkout = ({ name, price, desc, buyerId }: ProductToBuyParams) => {
   const handleCheckout = () => {

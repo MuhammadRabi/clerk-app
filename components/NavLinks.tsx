@@ -16,7 +16,7 @@ function NavLinks() {
       >
         Dashboard
       </Link>
-      <Link
+      {/* <Link
         href='/server'
         className={`${pathname === '/server' ? 'text-pink-600' : ''}`}
       >
@@ -27,7 +27,7 @@ function NavLinks() {
         className={`${pathname === '/client' ? 'text-pink-600' : ''}`}
       >
         Client
-      </Link>
+      </Link> */}
       <Link
         href='/products'
         className={`${pathname === '/products' ? 'text-pink-600' : ''}`}
