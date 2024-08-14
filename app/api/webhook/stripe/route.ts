@@ -1,8 +1,8 @@
 /* eslint-disable camelcase */
 import { createTransaction } from '@/lib/actions/transaction.action'
 import { NextResponse } from 'next/server'
-import stripe from 'stripe'
-
+import Stripe from 'stripe'
+import { stripe } from '@/lib/stripe'
 export async function POST(request: Request) {
   const body = await request.text()
 
