@@ -34,8 +34,11 @@ export async function POST(request: Request) {
 
     const newTransaction = await createTransaction(transaction)
 
-    return NextResponse.json({ message: 'OK', transaction: newTransaction })
+    return NextResponse.json({
+      message: 'Successful Transaction!',
+      transaction: newTransaction
+    })
   }
 
-  return new Response('', { status: 200 })
+  return new Response('webhook connection is working!', { status: 200 })
 }
