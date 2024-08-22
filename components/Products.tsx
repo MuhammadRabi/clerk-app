@@ -49,7 +49,7 @@ export default function Products({ products }: { products: ProductProps[] }) {
             value={query}
             onChange={e => setQuery(e.target.value)}
             placeholder='Search products ...'
-            className='w-full pl-8 md:w-[400px]'
+            className='w-full pl-8 dark:bg-slate-800 md:w-[400px]'
           />
         </div>
         <DropdownMenu>
@@ -91,7 +91,7 @@ export default function Products({ products }: { products: ProductProps[] }) {
         </DropdownMenu>
       </div>
       {!filteredProducts.length && (
-        <div className='my-12 text-slate-500'>
+        <div className='my-12 text-slate-500 dark:text-slate-200'>
           <KeyboardMusic className='mx-auto h-16 w-16' />
           <p className='text-center text-2xl font-bold '>
             There is No Products Found!

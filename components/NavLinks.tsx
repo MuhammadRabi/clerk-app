@@ -6,35 +6,25 @@ import React from 'react'
 function NavLinks() {
   const pathname = usePathname()
   return (
-    <div className='flex gap-6'>
-      <Link href='/' className={`${pathname === '/' ? 'text-pink-600' : ''}`}>
-        Home
-      </Link>
-      <Link
-        href='/dashboard'
-        className={`${pathname === '/dashboard' ? 'text-pink-600' : ''}`}
-      >
-        Dashboard
-      </Link>
-      {/* <Link
-        href='/server'
-        className={`${pathname === '/server' ? 'text-pink-600' : ''}`}
-      >
-        Server
-      </Link>
-      <Link
-        href='/client'
-        className={`${pathname === '/client' ? 'text-pink-600' : ''}`}
-      >
-        Client
-      </Link> */}
-      <Link
-        href='/products'
-        className={`${pathname === '/products' ? 'text-pink-600' : ''}`}
-      >
-        Products
-      </Link>
-    </div>
+    <>
+      <div className='hidden gap-6 md:flex'>
+        <Link href='/' className={`${pathname === '/' ? 'text-pink-600' : ''}`}>
+          Home
+        </Link>
+        <Link
+          href='/products'
+          className={`${pathname === '/products' ? 'text-pink-600' : ''}`}
+        >
+          Products
+        </Link>
+        <Link
+          href='/test-path'
+          className={`${pathname === '/test-path' ? 'text-pink-600' : ''}`}
+        >
+          Test
+        </Link>
+      </div>
+    </>
   )
 }
 

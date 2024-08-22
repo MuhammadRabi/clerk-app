@@ -8,10 +8,10 @@ export default async function Page() {
   return (
     <section className='bg-slate-200 py-12 dark:bg-slate-700'>
       <div className='container py-4'>
-        <h1 className='text-center text-3xl font-bold capitalize text-slate-800 md:text-5xl'>
+        <h1 className='mb-8 text-center text-3xl font-bold capitalize text-slate-800 dark:text-slate-200 md:text-5xl'>
           products
         </h1>
-        <p className='mx-auto mt-2 w-full  text-center text-base text-gray-600 md:w-3/4 md:text-xl'>
+        <p className='mx-auto mt-2 w-full  text-center text-base text-gray-600 dark:text-gray-200 md:w-3/4 md:text-xl'>
           Browse our collections for unique finds, trending items, and must-have
           products. Dive in and discover something new!
         </p>
