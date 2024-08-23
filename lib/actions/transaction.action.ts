@@ -28,11 +28,10 @@ export async function checkoutProduct(productToBuy: ProductToBuyParams) {
     metadata: {
       name: productToBuy.name,
       buyerId: productToBuy.buyerId
-      // description: productToBuy.desc
     },
     mode: 'payment',
-    success_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/`,
-    cancel_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/server`
+    success_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/checkout/success`,
+    cancel_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/checkout/cancel`
   })
 
   redirect(session.url!)

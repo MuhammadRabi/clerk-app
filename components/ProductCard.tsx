@@ -12,6 +12,7 @@ function ProductCard({ name, price, desc }: ProductProps) {
       <p className='text-sm text-gray-700 dark:text-gray-400'>{desc}</p>
       <div className='flex items-center'>
         <h4 className='text-xl font-semibold'>${price}</h4>
+        {/* shall be replaced with addToCart function -- after adding the Cart functionality*/}
         <Checkout name={name} price={price} buyerId={userId!} desc={desc} />
       </div>
     </article>
