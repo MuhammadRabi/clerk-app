@@ -2,8 +2,11 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { ClerkProvider } from '@clerk/nextjs'
-import { ThemeProvider } from '@/components/Theme-Provider'
 import Header from '@/components/Header'
+import CartProvider from '@/context/CartProvider'
+import { Toaster } from 'sonner'
+import { ThemeProvider } from '@/context/Theme-Provider'
+import Footer from '@/components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,9 +24,15 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang='en'>
         <body style={inter.style} className='bg-[#f9f9fb] dark:bg-gray-800'>
+          <Toaster />
           <ThemeProvider>
-            <Header />
-            <main>{children}</main>
+            <CartProvider>
+              <div className='grid min-h-[100vh] grid-rows-[auto_1fr_auto]'>
+                <Header />
+                <main>{children}</main>
+                <Footer />
+              </div>
+            </CartProvider>
           </ThemeProvider>
         </body>
       </html>

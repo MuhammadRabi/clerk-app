@@ -1,4 +1,4 @@
-import Products from '@/components/Products'
+import Products from '@/components/product/Products'
 import { getProducts } from '@/utils/getProducts'
 import React from 'react'
 

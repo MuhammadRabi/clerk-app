@@ -1,20 +1,20 @@
 'use client'
 
-import { ProductProps } from '@/types'
+import { Product } from '@/types'
 import ProductCard from './ProductCard'
 import { useState, useMemo } from 'react'
-import { Input } from './ui/input'
+import { Input } from '../ui/input'
 import { DropdownMenu } from '@radix-ui/react-dropdown-menu'
 import {
   DropdownMenuContent,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
   DropdownMenuTrigger
-} from './ui/dropdown-menu'
+} from '../ui/dropdown-menu'
 import { ArrowUpDownIcon, KeyboardMusic, Search } from 'lucide-react'
-import { Button } from './ui/button'
+import { Button } from '../ui/button'
 
-export default function Products({ products }: { products: ProductProps[] }) {
+export default function Products({ products }: { products: Product[] }) {
   const [query, setQuery] = useState('')
   const [sortBy, setSortBy] = useState('featured')
 

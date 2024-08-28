@@ -14,16 +14,13 @@ export type UpdateUserParams = {
   photo: string
 }
 
-export type ProductToBuyParams = {
-  name: string
-  price: number
-  buyerId: string
-  desc?: string
-}
-
-export type ProductProps = {
+export interface Product {
   name: string
   price: number
   id: string
   desc: string
+}
+
+export interface cartItem extends Product {
+  quantity: number
 }

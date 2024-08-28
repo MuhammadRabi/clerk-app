@@ -1,33 +1,37 @@
 'use server'
 
-import { ProductToBuyParams } from '@/types'
 import { redirect } from 'next/navigation'
 import Stripe from 'stripe'
 import Transaction from '../db/models/transaction'
 import { connectToDB } from '../db/db'
+import { auth } from '@clerk/nextjs/server'
+import { cartItem, Product } from '@/types'
 
-export async function checkoutProduct(productToBuy: ProductToBuyParams) {
+// interface Itransaction extends Product {
+//   buyerId: string
+//   quantity: number
+//   stripId: string
+// }
+
+export async function checkoutProduct(cartItems: cartItem[]) {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
-
-  const price = Number(productToBuy.price) * 100
+  const { userId } = auth()
 
   const session = await stripe.checkout.sessions.create({
-    line_items: [
-      {
-        price_data: {
-          currency: 'USD',
-          unit_amount: price,
-          product_data: {
-            name: productToBuy.name,
-            description: productToBuy.desc
-          }
-        },
-        quantity: 1
-      }
-    ],
+    line_items: cartItems.map((item: any) => ({
+      price_data: {
+        currency: 'USD',
+        unit_amount: item.price * 100,
+        product_data: {
+          name: item.name,
+          description: item.desc
+        }
+      },
+      quantity: item.quantity
+    })),
     metadata: {
-      name: productToBuy.name,
-      buyerId: productToBuy.buyerId
+      //   name: item.name,
+      buyerId: userId
     },
     mode: 'payment',
     success_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/checkout/success`,
@@ -39,7 +43,7 @@ export async function checkoutProduct(productToBuy: ProductToBuyParams) {
 
 // save to db  createTransaction
 
-export async function createTransaction(transaction: ProductToBuyParams) {
+export async function createTransaction(transaction: any) {
   try {
     await connectToDB()
     const newTransaction = await Transaction.create(transaction)
