@@ -19,6 +19,7 @@ export interface Product {
   price: number
   id: string
   desc: string
+  image?: string
 }
 
 export interface cartItem extends Product {

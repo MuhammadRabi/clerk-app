@@ -5,7 +5,6 @@ import { useState } from 'react'
 import { Sheet, SheetContent, SheetTrigger } from './ui/sheet'
 import { AlignJustify } from 'lucide-react'
 import { usePathname } from 'next/navigation'
-import { Button } from './ui/button'
 
 function MobileNav() {
   const pathname = usePathname()
@@ -14,9 +13,11 @@ function MobileNav() {
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger>
-        <Button variant='ghost' className='cursor-pointer md:hidden'>
-          <AlignJustify size={36} />
-        </Button>
+        <AlignJustify
+          size={36}
+          aria-label='menu-toggle'
+          className='rounded-sm p-0.5 duration-300 hover:bg-slate-200 dark:hover:bg-slate-700 md:hidden'
+        />
       </SheetTrigger>
       <SheetContent className='flex w-full items-center justify-center'>
         <div className='flex flex-col gap-9 text-4xl font-bold'>

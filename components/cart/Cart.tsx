@@ -8,8 +8,8 @@ import {
   SheetTrigger
 } from '@/components/ui/sheet'
 import { useCart } from '@/context/CartProvider'
+import { checkoutProduct } from '@/lib/actions/order.action'
 import { ShoppingBasket, ShoppingCartIcon, X } from 'lucide-react'
-import { checkoutProduct } from '@/lib/actions/transaction.action'
 
 const Cart = () => {
   const { clearCart, cartItems, getCartTotal, removeItem } = useCart()
