@@ -6,7 +6,7 @@ function ProductCard({ name, price, desc, id, image }: Product) {
   return (
     <article className='mx-auto my-2 flex w-full max-w-sm flex-col items-start rounded-md border bg-slate-100 shadow-md duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-slate-600 dark:bg-gray-700'>
       <Image
-        src={image!}
+        src='https://loremflickr.com/640/480/abstract'
         width={640}
         height={480}
         alt='product-img'
