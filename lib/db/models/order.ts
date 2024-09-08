@@ -6,11 +6,7 @@ const OrderSchema = new Schema({
     required: true,
     unique: true
   },
-  buyerId: {
-    type: String,
-    required: true
-  },
-  price: {
+  ordertTotalAmount: {
     type: Number,
     required: true
   },

@@ -24,7 +24,6 @@ export async function checkoutProduct(cartItems: cartItem[]) {
       quantity: item.quantity
     })),
     metadata: {
-      //   name: item.name,
       buyerId: userId
     },
     mode: 'payment',

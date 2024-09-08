@@ -23,13 +23,11 @@ export async function POST(request: Request) {
 
   // CREATE
   if (eventType === 'checkout.session.completed') {
-    const { id, amount_total, metadata } = event.data.object
-
+    console.log(event)
+    const { id, amount_total, metadata, payment_status } = event.data.object
     const order = {
       stripeId: id,
-      // name: metadata?.name || '',
-      price: amount_total ? amount_total / 100 : 0,
-      buyerId: metadata?.buyerId || '',
+      orderTotalAmount: amount_total ? amount_total / 100 : 0,
       createdAt: new Date()
     }
 
