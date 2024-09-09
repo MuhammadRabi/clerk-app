@@ -1,6 +1,5 @@
 /* eslint-disable camelcase */
 import { NextResponse } from 'next/server'
-import Stripe from 'stripe'
 import { stripe } from '@/lib/stripe'
 import { createOrder } from '@/lib/actions/order.action'
 
@@ -24,11 +23,10 @@ export async function POST(request: Request) {
   // CREATE
   if (eventType === 'checkout.session.completed') {
     console.log(event)
-    const { id, amount_total, metadata, payment_status } = event.data.object
+    const { id, amount_total } = event.data.object
     const order = {
       stripeId: id,
-      orderTotalAmount: amount_total ? amount_total / 100 : 0,
-      createdAt: new Date()
+      orderTotalAmount: amount_total ? amount_total / 100 : 0
     }
 
     // to be fixed!

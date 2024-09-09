@@ -35,7 +35,6 @@ export async function checkoutProduct(cartItems: cartItem[]) {
 }
 
 // save to db  createOrder
-// save the order as buyerId and total price
 
 export async function createOrder(order: any) {
   try {
