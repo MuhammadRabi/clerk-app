@@ -25,3 +25,9 @@ export interface Product {
 export interface cartItem extends Product {
   quantity: number
 }
+
+export interface Iorder {
+  stripeId: string
+  orderTotalAmount: number
+  customerEmail: string
+}

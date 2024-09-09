@@ -22,13 +22,11 @@ export async function POST(request: Request) {
 
   // CREATE
   if (eventType === 'checkout.session.completed') {
-    console.log(event)
     const { id, amount_total, customer_details } = event.data.object
-    console.log(customer_details?.email)
     const order = {
       stripeId: id,
       orderTotalAmount: amount_total ? amount_total / 100 : 0,
-      customerEmail: customer_details?.email
+      customerEmail: customer_details?.email!
     }
 
     // to be fixed!

@@ -5,7 +5,7 @@ import Stripe from 'stripe'
 import Order from '../db/models/order'
 import { connectToDB } from '../db/db'
 import { auth } from '@clerk/nextjs/server'
-import { cartItem, Product } from '@/types'
+import { cartItem, Iorder } from '@/types'
 
 export async function checkoutProduct(cartItems: cartItem[]) {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
@@ -36,7 +36,7 @@ export async function checkoutProduct(cartItems: cartItem[]) {
 
 // save to db  createOrder
 
-export async function createOrder(order: any) {
+export async function createOrder(order: Iorder) {
   try {
     await connectToDB()
     const newOrder = await Order.create(order)
