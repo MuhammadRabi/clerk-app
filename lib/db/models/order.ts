@@ -10,6 +10,10 @@ const OrderSchema = new Schema(
     orderTotalAmount: {
       type: Number,
       required: true
+    },
+    customerEmail: {
+      type: String,
+      required: true
     }
   },
   { timestamps: true }
